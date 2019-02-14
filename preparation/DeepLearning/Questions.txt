@@ -5,8 +5,31 @@
 5) Active Learning
 6) RNN and CNN Architectures
 7) Embeddings
-8) Tenorflow visuaizations
+8) Tensorflow visuaizations
 9) Training on GPUs
 10) LSTM vs GRU
 11) CNN padding, and its layers
-12) CharLevel vs Word Level vs Doc Level Embeddings
+12) CharLevel vs Word Level vs Doc Level Embeddings. How do you implement? 
+13) How do you preprocess text data for RNN and CNN?
+14) Shapes and coversions of shapes at each layers?
+15) Dropout and Activations(ReLu)
+16) Argmax and Metrics
+17) Google DeepLearning Interview Questions of LSTM, CNN and other new architectures
+18) Universal Embeddings
+19) Gradient Descent/ Gradient Ascent/ Stochastic Gradient Descent ...one step at a time, large steps
+20) Concave and Convex functions, Global Minima and Global Maxima
+21) Adam and all other optimizers
+22) Weights Initializtion
+23) Theis and weights dropping and light weight
+24) Best cost function
+25) End to End NN architecture for a problem - How many layers and what parameters do you start with and why?
+26) Metrics
+27) What are convolutional kernels?
+28) Important research papers
+29) Combination of CNN and RNNs?
+30) Iterating in minbatches and its advantages in gradient descent? 
+31) Batch Normalization and Regularization? batch norm we need to know if this is train or the test phase
+
+
+TensorFlow:
+1) Variable Scope
