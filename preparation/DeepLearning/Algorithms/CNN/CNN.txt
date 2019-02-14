@@ -1,1 +1,98 @@
 
+ConvNets:
+a) Match parts of image rather than a whole image. It divides image into smaller parts called features (mini images 3*3 pixels). Math behind matching these is called filtering.
+
+#### Repeat that all features and filtering = Convolition Layer: 
+  b) Filtering (Feature Mapping Happens):
+      (i) Line up the feature and image patch.
+      (ii) Multiply each image pixel by the corresponding feature pixel.
+      (iii) Add them up
+      (iv) Value = Divide by the total numbers of pixels in the feature.
+
+      How well the feature is represented at that position is proportional to value.
+  c) By moving filter to every possible position we do convolution
+  
+  This act of convolving image with a bunch of features with a stack of filtered images we all it as a convolutional layer.
+  In covolution we get a stack of filtered images.
+
+
+### Pooling: Shrinking the image stack:
+  d) Pick a window size (usually 2 or 3).
+  e) Pick a stride (usually 2)
+  f) Walk your window across your filtered images.
+  g) From each window take the maximum value.
+  h) Pooling does not care the position where the maximum value occurs. Less sensitive to [osition
+  
+  We get similar pattern but smaller one.
+  Max pooling is performed on all our stacked images.
+
+### Normalization: 
+  
+  Keep the math from breaking by tweaking each of the values just a bit.
+  Change everything negative to zero (ReLUs - kind of a step function)
+  
+  In this ReLu layer, a stack of images becomes stack of images with no negative values.
+  
+ 
+ ### Layers get stacked:
+ 
+      Convolution ----> ReLu ----> Pooling ---> Convolution--->ReLu--->Pooling--->
+      Image gets more filtered through convolutional layers and more smaller with poling layers
+ 
+ ### Final Layer == Fully connected Layer:
+ 
+      Every value gets a vote. 
+      Each stack of images are kept into single list. Each of the item is mapped to output.
+      More high value of item they get better vote(weight) to the output.
+      We can use multiple connected layer and stack them which acts as hidden layers
+
+#### Learning:
+      
+      Where do all the magic numbers come from?
+        
+           a) Features in convolutional layers
+           b) Voting weights in fully connected layers
+           
+           Answer: BackPropogation : Error = Right Answer - Actual Answer
+ 
+ #### Gradient Descent:
+ 
+      With error signal, it drives gradient descent.
+      
+      For each feature pixel, and voting weight, adjust it up and down a bit
+      and see how the error changes.
+ 
+ ### Hyperparameters:
+ 
+     Convolution:
+
+        Number of features
+        Size of features
+
+     Pooling:
+
+        Window size
+        Window stride
+
+     Fully connected:
+        Number of neurons
+        
+     Architecture:
+         How many of each types of layer?
+         In what order?
+         Can we design a new types of layers entirely?
+ 
+ 
+ #### More:
+ 
+      a) Can be used in any 2D and 3D data. Things closely that are together are closely related are than the things that are far away.
+      b) Sound and chop it up in each timesteps. (Intensity on x axis and timesteps on y axis)
+      c) Text: Words - Xaxis and Position in sentence - Y axis
+ 
+ ### Limitations:
+ 
+    ConvNets only capture local "spatial" patterns in data. If the data cant be look like image they are not as useful.
+    
+    Rule of Thumb: If your data is just as useful after swapping any of your columns with each other, then we cant use CNNs
+      
+    
