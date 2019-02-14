@@ -1,0 +1,7 @@
+1. Theory and Authors
+2. Architecture
+3. How did you Implement and potential questions?
+4. Dataset Size
+5. How did you tune parameters?
+6. Results
+7. What is your contribution?
