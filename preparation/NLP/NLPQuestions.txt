@@ -1,0 +1,14 @@
+1. Continous Bag of Words
+2. NGram(perplexity and Entropy), tf-idf, LSA, LDA, Word2Vec, Glove
+3. FastText, Phrase Similarity , Cosine Similarity, Essay Coherence
+4. NLP capturing Semantic and Syntactic relations
+5. Sentiment Analysis:
+a) Token wise mean which is bad as all notion of token order is disregarded. Can be a word token or char token
+b) Recursive Networks which acts as a parser to combine word embeddings where left and right context are combined using words.
+c) Fixed size representation of the sentence with sequential representation of sentences from left to right happens in RNNs.
+6. All kinds of NLP problems you deal at your work
+7. NLTK, Spacy and HTML and Regex
+8. Spell Correction and Grammar
+9. NLTK website (StopWords and Stem Words)
+
+
