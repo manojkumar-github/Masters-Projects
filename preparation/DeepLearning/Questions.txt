@@ -32,6 +32,7 @@
 32) Are votes shared in CNN or RNN? What is the advantage of sharing of votes?
 33) Momentum
 34) Variants of RNN, LSTM and CNNs (BiDirectional, Dynamic)
+35) Augmenting models
 
 
 TensorFlow:
