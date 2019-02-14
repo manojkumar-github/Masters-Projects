@@ -9,3 +9,4 @@
 9) Training on GPUs
 10) LSTM vs GRU
 11) CNN padding, and its layers
+12) CharLevel vs Word Level vs Doc Level Embeddings
