@@ -33,6 +33,7 @@
 33) Momentum
 34) Variants of RNN, LSTM and CNNs (BiDirectional, Dynamic)
 35) Augmenting models
+36) Cyclical Learning Rates
 
 
 TensorFlow:
