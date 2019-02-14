@@ -1,7 +1,33 @@
 1. Theory and Authors
-2. Architecture
+
+Authors: Yann Le Cun and Alexis (Facebook Research)
+
+Author proposes as a VD-CNN which uses 
+a) operates at the "CHAR-LEVEL" and 
+b) uses only small convolutions and pooling operations.
+c) performance of the model increases with depth upto 29 layers
+
+#### Reason why author proposes ConvNets:
+a) He argues that LSTM is lacking genric learning machines for sequence processing
+b) A fully connected hidden layer can learn any real valued function but much better results can be obtained with hierarchial distributed representations. By this means, the search space is constrained and efficient solutions can be learned with gradient descent
+c) Goal is to develop an efficient hierarchial representations of sentences which suits for essay responses.
+
+#### Literature:
+a) Token wise mean which is bad as all notion of token order is disregarded. Can be a word token or char token
+b) Recursive Networks which acts as a parser to combine word embeddings where left and right context are combined using words.
+c) Fixed size representation of the sentence with sequential representation of sentences from left to right happens in RNNs.
+d) CNNs with single conv layer and with multiple widths and breadths were tried and also with 5 convolutional layers. Important thing is introduction of multiple temporal k-max pooling layers idenifying k-max features of a sentence. Value of `k` depends on length of sentence and position of this layer in the network.
+e) Author was inspired for character level embeddings of word with max operation and convolutional kernel sizes.
+f) Yang proposed hierarchial attention network for document classification that perform an attention first on the sentences and then the word. Typically performs better on multiple sentences.
+g) A combination of CNN and RNN where high level features are learned by CNN and is given as input to LSTM
+
+Author anticipates performance improvements with increased depth upto 29 layers
+
+2. Architecture:
+29 layers - Inspired by Computer Vision
 3. How did you Implement and potential questions?
 4. Dataset Size
 5. How did you tune parameters?
 6. Results
 7. What is your contribution?
+For multi-class text classification
