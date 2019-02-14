@@ -1,0 +1,5 @@
+1. Stacking
+2. CutPoints
+3. All Metrics
+4. Kernels
+5. Regularization and adding penality
