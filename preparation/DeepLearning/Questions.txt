@@ -1,0 +1,11 @@
+1) Why are you using CNN instead of RNN for text classification?
+2) Language Models
+3) BackPropogation, Vanishing/Increasing gradient Problem, Epochs, cycles, iterations
+4) Transfer Learning, Freeze weights and how do you do?
+5) Active Learning
+6) RNN and CNN Architectures
+7) Embeddings
+8) Tenorflow visuaizations
+9) Training on GPUs
+10) LSTM vs GRU
+11) CNN padding, and its layers
