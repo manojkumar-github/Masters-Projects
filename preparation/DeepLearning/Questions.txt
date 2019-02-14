@@ -29,6 +29,7 @@
 29) Combination of CNN and RNNs?
 30) Iterating in minbatches and its advantages in gradient descent? 
 31) Batch Normalization and Regularization? batch norm we need to know if this is train or the test phase
+32) Are votes shared in CNN or RNN? What is the advantage of sharing of votes?
 
 
 TensorFlow:
