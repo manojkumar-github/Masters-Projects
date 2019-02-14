@@ -3,3 +3,6 @@
 3. All Metrics
 4. Kernels
 5. Regularization and adding penality
+6. Grid Search and Exhaustive searches
+7. Probalistic models
+8. Naive Bayes and Bayes theorm
