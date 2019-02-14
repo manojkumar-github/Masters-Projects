@@ -1,6 +1,6 @@
 1) Why are you using CNN instead of RNN for text classification?
 2) Language Models
-3) BackPropogation, Vanishing/Increasing gradient Problem, Epochs, cycles, iterations
+3) BackPropogation, Vanishing/Increasing gradient Problem (How do you deal with it, Early cutting), Epochs, cycles, iterations
 4) Transfer Learning, Freeze weights and how do you do?
 5) Active Learning
 6) RNN and CNN Architectures
@@ -31,6 +31,7 @@
 31) Batch Normalization and Regularization? batch norm we need to know if this is train or the test phase
 32) Are votes shared in CNN or RNN? What is the advantage of sharing of votes?
 33) Momentum
+34) Variants of RNN, LSTM and CNNs (BiDirectional, Dynamic)
 
 
 TensorFlow:
