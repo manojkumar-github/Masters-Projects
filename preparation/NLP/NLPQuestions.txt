@@ -10,5 +10,6 @@ c) Fixed size representation of the sentence with sequential representation of s
 7. NLTK, Spacy and HTML and Regex
 8. Spell Correction and Grammar
 9. NLTK website (StopWords and Stem Words)
+10. Syntatic Parser, Semantic Parser, POS parser ...in Spacy and its embeddings
 
 
