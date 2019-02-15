@@ -38,7 +38,102 @@
 
 4.  What is RNN good for?
     
-    Language Model: Given a history of all characters at time "t", predict the next character
+    a) Language Model: Given a history of all characters at time "t", predict the next character. Similarly for words.
+    
+     
+           P(c(t)|{c(t-1),c(t-2), c(t-3),....c0})
+   
+    b) Sentiment Analysis:When the network encounters an end of the sentence token, it is going to the nodes output of classification. Output is two units with softmax output where activity sums up to 1. 
+    
+    c) Machine Transaltion: After the end of token, where input is a sentence after the end of the sentence
+    token is encountered the model will begin emitting the translation from english to french.
+    
+5. How to train the RNN?
+
+   1) Recurrent weights(W (R)) are shared  across the different layers of time.
+   2) Here, network outputs y(i) at every time step. Unlike FNN, here we have multiple costs and W(R) are shared across
+   the layers. So, we combine the gradients that are obtained at all these different timesteps together
+   3) We have to use chain rule to backpropogate through these nested layer of computations until timestep 0.
+   4) ISSUE: Vanishing and Exploring Gradients. You have to multiply bunch of derivatives. Magnitude of update gonna with size of this weight matrices. We are multiplying all these derivatives over and over again. 
+   If this recurrent weight < 1 and then at time step 100 the W(r) becomes 0.
+   If this W(r) > 1 and then at timestep 100 the W(r) becomes huge.
+   5) How do you solve this?
+   
+       - Activation Functions importance:
+              a) Tanh takes -inf to +inf and squashes to [0,1]
+       - Exploding Gradients:
+          
+          - Truncated backpropogation in time.
+          - Clip gradients at threshold. Useful in speech models
+          - Adaptive Learning rate algorithm like RMSProp
+       
+       - Vanishing Gradients:
+       
+         - Harder to detect
+         - Cost can go down - and then pleatue to undesirable rate and not wont converge below that.
+            Gradient have started vansishing for very long temporal scales.
+         - Smart Weight initialization
+         - Using activations such has rectifier linear units have derivative of 1 if output is +ve.
+         - Use different optimizing algorithms - RMSProp
+         - Common approach to use new architectures LSTM and GRU
+   6) LSTM:
+   
+        - It has memory cell "C" with recurrent weight with W(R) == 1. This removes vanishing gradient problem.
+        - As you move forward in time, activity of this particular memory cell simply inherits the actiity from previous timestep. But, nothing is useful just simply copying from previous to next.
+        - Lets Manipulate the output:
+          
+              - "forget: (flush the memory) and 
+              "input" (add to memeory) and 
+              "output" (get from memory)
+              
+              - 1) Output from Memory: Read from the memory -> concept of a gate.
+                 
+                   Take activiy of memory cell which is a vector unit and pass it through tanh function
+                   and multiply by a gate. As a gate is a vector of memebers of 0s and 1s. 
+                   It will essentially modify the size of this memory cell inorder to retrives its ouput
+                   
+                   C(t-1)--->C(t) ---> C(t+1)
+                   
+                   We have h(t) for C(t)
+                   
+                   Gate is an alphine layer:
+                   
+                        sigmoid((x(t), h(t-1) ) W(o) + b(o)) (to ensure between 0 and 1 -> gains scaling property,
+                        allowing to modulate the memory cell inorder to retrive its outputs)
+                        
+                        Again h(t) = Sigmoid(W(0) * [x(t), h(t-1] + b(o)) * tanh(C(t)) (Element wise multiplication
+                                   = o(t) * tanh(C(t))
+             
+             - Forget the Memory:
+             
+                    Same as above with new alphine layer with different weights W(f)
+                    f(t)  = Sigmoid(W(f) * (h(t-1), x(t))) 
+                    Forget gate * C(t) One time step to the next
+                    If the output from this forget gate is all zeroes that the memory has been flushed completely.
+                    If '1' memory is retained from one time step to the nex.
+                    
+            - Input to write data:
+            
+                   - An alphine layer with weights W(c). Input gate with two c
+                   components:
+                   
+                   C(~t) = tanh(W(c) (h(t-1), x(t)) -----> new proposed input
+                   Input gate modulates the propsed input i(t) = Sigmoid(W(i) (h(t-1), x(t))
+                   Therefore, C(t+1) = f(t) * C(t) + i(t) C(~t)
+                   
+            This forms the core of the LSTM network. All gates are vectors.
+            
+                   
+
+
+        
+          
+        
+           
+    
+    
+    
+          
 
      
       
