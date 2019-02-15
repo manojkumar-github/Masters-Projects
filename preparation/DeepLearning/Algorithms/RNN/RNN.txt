@@ -1,0 +1,45 @@
+1. Start from a feed forward network
+      y = g(Sigma(W*x+b))
+      
+      y(k) = g(W*y(k-1) + b), 
+      
+      where 'g' is a activation function (non-linear).
+              W - weights
+              y(k-1) = Output from a previous layer
+              b - Bias
+     
+     a) In order to train these networks, we take the cost function and take the derivative of the cost
+     function w.r.t weight in question
+     
+     b) then we use the chain rule to effectively move this derivate through nested layer of comutations
+ 
+ 2. Why do we need RNNs?
+     
+    - Feed forward networks have fixed length
+    - Feed forward networks assumes that different examples are independent of each other.
+    
+    Therefore, RNN learns local and long term temporal dependences of sequences of input data and can also accomodate input
+    sequnces of equal length
+    
+    #### Equation:
+          
+      We have hidden unit h(t) that takes x(t) as input and mulptiplies with "W(i)".
+      Therefore, linear unit euqation is y(t) = W1*x(t) + b(h)
+      Now we add the recurrent weight to h(t) to turn into an recurrent unit.
+      h(t) = g(h) (W(i) * x(t) + W(R)h(t-1) + b(h)) # hidden state equation
+      y(t) = g(y) (W(y)* h(t) + b(y)) -------(1)
+
+3. How do we train such a network?
+
+    - Unrolling a recurrent network into a feed-forward network. Here, a recurrent
+      neural network at time (t), it takes input x(t) and multiplies by W(i) and then the unit at time "t" 
+      is passed on to the unit of time t+1. If you look at the input h(t+1) not only depends upon the input x(t+1) but also on the 
+      previous time step hidden unit's activity.
+
+4.  What is RNN good for?
+    
+    Language Model: Given a history of all characters at time "t", predict the next character
+
+     
+      
+    
