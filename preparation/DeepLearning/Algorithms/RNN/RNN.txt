@@ -123,18 +123,17 @@
                    
             This forms the core of the LSTM network. All gates are vectors.
             
-                   
-
-
+   
+   7) GRU - Simplified form of LSTM:
+   
+        It basically compressed all of these different gates into one update gate.
         
-          
+        Update Gate:
         
-           
-    
-    
-    
-          
-
-     
-      
-    
+             h(t) ---> updategate --> h(t+1)
+             Update Gate+ Proposed Input h(~t)
+             Update Gate= Sigmoid(W(z) .[h(t-1), x(t)]) + 
+             New Propsed Input h(~t) = Tanh(W(c) . [r(t).h(t-1), x(t)])
+             How much we want to remember r(t) = Sigmoid(W(r).[h(t-1), x(t)]
+             h(t) = (1 - z(t) ) . h(t-1) + z(t) .h(~t)
+            
