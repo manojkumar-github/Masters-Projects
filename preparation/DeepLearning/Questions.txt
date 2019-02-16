@@ -38,6 +38,7 @@
 38) Loss functions when is when
 39) VAE
 40) Implement NN, Dropout and Backpropogation from scratch
+41) Understand vocabulary and dictionary and embedding lookup in the context of RNN and CNN
 
 
 TensorFlow:
