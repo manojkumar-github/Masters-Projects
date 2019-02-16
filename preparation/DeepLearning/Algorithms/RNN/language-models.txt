@@ -46,7 +46,12 @@ sentence_end_token = "SENTENCE_END"
 # Total parameters = 2HC + H^2  = 2*100*8000 + 100*100 = 1600000 + 10000 = 1610000
 # As x(t) is a one-hot-encoder, we need to perform whole multplication in our networks of V(t). So , keep our vocab_size as small as possible
 # class RNNNumpy:
-      def __init__(self,
+      def __init__(self, word_dim, hidden_dim=100, bptt_truncate=4):
+             self.word_dim = word_dim
+             self.hidden_dim = hidden_dim
+             self.bptt_truncate = bptt_truncate
+             self.U = np.random.uniform(-np.sqrt(1./word_dim), np.sqrt(1./word_dim), (hidden_dim, word_dim))
+             
 
 
 
