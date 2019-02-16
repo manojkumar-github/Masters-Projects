@@ -36,6 +36,8 @@
 36) Cyclical Learning Rates
 37) Understand the differences between character and word emebeddings
 38) Loss functions when is when
+39) VAE
+40) Implement NN, Dropout and Backpropogation from scratch
 
 
 TensorFlow:
