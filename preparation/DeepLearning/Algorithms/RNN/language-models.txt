@@ -1,0 +1,55 @@
+Applications:
+
+a) Generate new text ---> Generative models
+b) Score arbitrary sentences how likely they occur in the real world
+c) For an example, if we wanted to predict the next word in the sentence, it would be vector of probabilities across its vocabulary.
+d) The above diagram has outputs at each time step, but depending on the task this may not be necessary. For example, when predicting the sentiment of a sentence we may only care about the final output, not the sentiment after each word. Similarly, we may not need inputs at each time step. The main feature of an RNN is its hidden state, which captures some information about a sequence.
+   PLEASE implement this and understand this.
+e) Machine Translation: Once it gets all the input language text input, it starts outputting in other language.
+f) Speech recognition
+g) Generating Image Descriptions
+h) Refer to Andrew Kaparthy post - training on single char level embeddings
+
+An example:
+
+a) Download unlabled corpus of reddit commenters.
+b) Tokenize text as words as we are predicting probabilites per word basis.
+c) Remove infrequent words -> having a large vocabulary will make the RNN long time to train. Because we dont have lot
+of contextual examples of those words we wont be able to learn them in a correct way. We set vocabulary_size= 8000.
+d) UNKNOWN token is important to Langugae model to know the non-linearities. The word UNKNOWN_TOKEN becomes a part of the vocabulary
+and will predict the next word just like any other word. When we predict the UNKNOWN word we will replace it with a randoly generated text.
+e) Prepare a SENTENCE START and END token to each sentence. Given the SENTENCE_START token what is the actual first word?
+f) Converting text input which is in string format to vectors. Either pre-trained embeddings or word_to_index/index_to_word maps
+g) Input = [0, 168, 216, 40] Output(y) = [168, 216, 40, 1] where `0` could be the SENTENCE_START token.
+
+
+Code:
+
+vocabulary_size = 8000
+unknown_token = "UNKNOWN_TOKEN"
+sentence_start_token = "SENTENCE_START"
+sentence_end_token = "SENTENCE_END"
+
+# read data
+# tokenize to words in to list of sentences using nltk - list of list of sentenc e words
+# Count Word Frequences using nltk.FreqDist()
+# vocab = word_freq.most_common(vocab_size -1)
+# index_to_word = [x[0] for x in vocab]
+# index_to_word.append(unknown_token)
+# word_to_index = dict([(w,i) for i, w in enumerate(index_to_word)])
+# while sending indexes to RNN input, convert it to vocab size where '1' is at index position and 0s at other positions
+# So each of x(t) will become a vector and input "x" bcomes a matrix
+# we can perform this transformation in NN code or pre-processing code
+# the output "o" will also have similar format
+# Each o(t) is a vector of vocab_size elements and each element represents the probability of that word being the next word in the sentence.
+# x = 8000 and O = 8000, s(t) = 100 , U = 8000 * 100, V = 100 * 8000, W = 100 * 100
+# Total parameters = 2HC + H^2  = 2*100*8000 + 100*100 = 1600000 + 10000 = 1610000
+# As x(t) is a one-hot-encoder, we need to perform whole multplication in our networks of V(t). So , keep our vocab_size as small as possible
+# class RNNNumpy:
+      def __init__(self,
+
+
+
+
+
+Evaluation:
