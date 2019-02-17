@@ -39,6 +39,8 @@
 39) VAE
 40) Implement NN, Dropout and Backpropogation from scratch
 41) Understand vocabulary and dictionary and embedding lookup in the context of RNN and CNN
+42) Encoder/Decoder network
+43) Bidirectional RNN (Past + future Inputs and two RNN are stacked on each other and the decision is based on both of the states) ------ Deep Bidirectional RNNs use multiple layers at each time step
 
 
 TensorFlow:
