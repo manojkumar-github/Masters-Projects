@@ -136,4 +136,6 @@
              New Propsed Input h(~t) = Tanh(W(c) . [r(t).h(t-1), x(t)])
              How much we want to remember r(t) = Sigmoid(W(r).[h(t-1), x(t)]
              h(t) = (1 - z(t) ) . h(t-1) + z(t) .h(~t)
-            
+           
+   8) As RNN shares the parameters at each time step, this reduces the number of the parameters that we have to deal with.
+   
