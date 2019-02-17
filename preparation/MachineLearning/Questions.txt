@@ -6,3 +6,4 @@
 6. Grid Search and Exhaustive searches
 7. Probalistic models
 8. Naive Bayes and Bayes theorm
+9. BootStrapping and Boosting and Other Ensemble Methods
