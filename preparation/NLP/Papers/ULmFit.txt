@@ -1,1 +1,52 @@
-Universal Language Model Fine Runing for Text Classification
+Universal Language Model Fine Runing for Text Classification: (Implemented in fast.ai library)
+
+a) Indutive Transfer : Fine Tuning pre-trained word embeddings - a simple transfer technique that only targets a model's first layer
+b) Concatenate Embeddings derived from other task with the input at different layers
+c) LMs overfit to small datasets and suffered catastrophic forgettng when fine-tuned with a classifier.
+
+Architecuture:
+
+a) Same 3 layers LSTM architecture with SAME hyperparameters and no additions other than TUNED dropout hyper-parameters outperform highly engineered models. AWD-LSTM
+
+Contributions:
+1) Propose ULMFiT for any NLP transfer learning task
+2) Propose Discriminative fine-tuning, slanted , triangular learning rates and gradual unfreezeing --> these novel techniques to retain previous knowledge and avoid catastrophic forgetting during fine-tuning.
+3) Outperformed others results.
+4) PreTrained Models and code available to wider option.
+5) With only 100 labeled examples
+
+Related Work:
+a) Transfer Learning ---> transferring the last layers of the model. 
+b) Hypercolumns ----> embeddings at different layers used as concatanated embeddings
+c) Multi-Task learning ----> Requires the tasks to be trained from scratch every time. Training jointly with other tasks.
+d) Fine-tuning
+
+Universal Language Model Fine-Tuning:
+
+a) Why it is called universal?
+    1) it works across tasks varying in document size, number and label type
+    2) it uses a single architecture and training process
+    3) it requires no custom feature engineering or preprocessing
+    4) it does not require additional in-domain documents or labels.
+
+c) 3 tasks:
+    1) General- Domain LM pretraining . ->>> wikitext-103 (103 million words)
+    2) target task LM fine-tuning .  ---> faster as it has adapt to target data. Proposed "discriminative fine tuning and slanted traingular learning rates" for fine tuning
+        
+        Discriminative-fine tuning: 
+        As different layers capture different info, they must be fine tuned to different extent. Tuning different layers with different learning rates
+        Slanted triangular learning rates:
+        First linearly increased and the linearly decreases 
+    3) target task classifier fine-tuning
+        a) Augment with pre-trained language model with two additional linear blocks.
+        b) Each block uses batch_normalization and dropout with ReLu activations and softmax layers that outputs probability distribution over target classes as the last layer. Note that the paramters from last two specific layers are learnt from scratch. The first linear layer takes as the input the pooled last hidden states.
+        c) Concat Pooling: 
+            Pooling the last hidden state value, maximum hidden state value and minium hidden state value
+        d) Gradual Unfreezing:
+            Rather than fine-tuning slowly and fastly we should do it gradually. Rather than fine-tuning all at once , which risks catastrophic forgetting, we propose to gradually unfreeeze the model starting from the last layer as this contains the least general knowledge. 
+             ----> Chain thaw
+         e) BackPropogation through time for text classification for batches,
+         f) Bi-Directional Language Model
+ 
+ 
+   
