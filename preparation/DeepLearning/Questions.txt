@@ -1,10 +1,41 @@
 1) Why are you using CNN instead of RNN for text classification?
+It depends on how much your task is dependent upon long semantics or feature detection. More details here: https://arxiv.org/pdf/1702.01923...
+
+For tasks where length of text is important, it makes sense to go with RNN variants. These types of tasks include: question-answering, translation etc.
+
+For tasks where feature detection in text is more important, for example, searching for angry terms, sadness, abuses, named entities etc. Convnets work well.
+
+Although I have given examples here, please dont take it in writing. A result very close to state of the art is captured by a convnet architecture in translation [1610.10099] Neural Machine Translation in Linear Time and LSTMs can be used to auto detect features: https://arxiv.org/pdf/1703.03130...
+
 2) Language Models
-3) BackPropogation, Vanishing/Increasing gradient Problem (How do you deal with it, Early cutting), Epochs, cycles, iterations
+RNN and predict the next word probabilities
+3) BackPropogation:https://ml-cheatsheet.readthedocs.io/en/latest/backpropagation.html
+4) Vanishing/Increasing gradient Problem: https://www.quora.com/What-is-the-vanishing-gradient-problem
+(How do you deal with it, Early cutting), 
+5) 
+Epochs, cycles, iterations, mini batches
+https://stackoverflow.com/questions/4752626/epoch-vs-iteration-when-training-neural-networks
+
+Advantage of iterating over mini batches:
+The key advantage of using minibatch as opposed to the full dataset goes back to the fundamental idea of stochastic gradient descent1.
+
+In batch gradient descent, you compute the gradient over the entire dataset, averaging over potentially a vast amount of information. It takes lots of memory to do that. But the real handicap is the batch gradient trajectory land you in a bad spot (saddle point).
+
+In pure SGD, on the other hand, you update your parameters by adding (minus sign) the gradient computed on a single instance of the dataset. Since it's based on one random data point, it's very noisy and may go off in a direction far from the batch gradient. However, the noisiness is exactly what you want in non-convex optimization, because it helps you escape from saddle points or local minima(Theorem 6 in [2]). The disadvantage is it's terribly inefficient and you need to loop over the entire dataset many times to find a good solution.
+
+The minibatch methodology is a compromise that injects enough noise to each gradient update, while achieving a relative speedy convergence.
+
+Dealing with Vairble Sequence inputs:
+https://stackoverflow.com/questions/34670112/how-to-deal-with-batches-with-variable-length-sequences-in-tensorflow
+
+
+
 4) Transfer Learning, Freeze weights and how do you do?
 5) Active Learning
 6) RNN and CNN Architectures
-7) Embeddings
+7) Embeddings:
+https://www.tensorflow.org/guide/embedding
+
 8) Tensorflow visuaizations
 9) Training on GPUs
 10) LSTM vs GRU
@@ -12,7 +43,15 @@
 12) CharLevel vs Word Level vs Doc Level Embeddings. How do you implement? 
 13) How do you preprocess text data for RNN and CNN?
 14) Shapes and coversions of shapes at each layers?
-15) Dropout and Activations(ReLu)
+15) Dropout and Activations(ReLu):
+Softmax:
+Sigmoid:
+Relu: 
+In the context of artificial neural networks, the rectifier is an activation function defined as the positive part of its argument:
+
+{\displaystyle f(x)=x^{+}=\max(0,x)} {\displaystyle f(x)=x^{+}=\max(0,x)},
+
+
 16) Argmax and Metrics
 17) Google DeepLearning Interview Questions of LSTM, CNN and other new architectures
 18) Universal Embeddings
