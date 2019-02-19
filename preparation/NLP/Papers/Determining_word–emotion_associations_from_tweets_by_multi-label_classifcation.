@@ -1,0 +1,12 @@
+Determining word–emotion associations from tweets by multi-label classifcation.
+
+By expanding their lexicon using multi-label classification of words and compare different word-level features extracted from unlabelled tweets such as unigrams.brown clusters, POS tags and word2vec ebeddings.
+
+Corpus of Unlabelled tweets + Multi-Label Classifier
+
+
+We have an emotion Intensity lexicon
+Represent Words as feature vectors drawn from the cotexts in which the words occur in corpus
+
+a) Word Centriod Model - Word vectors from tweet-level attributes by averaging all the tweests
+b) Word Emebeddings - dense word vectors
