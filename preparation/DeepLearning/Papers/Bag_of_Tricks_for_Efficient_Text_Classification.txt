@@ -1,0 +1,15 @@
+Bag of Tricks for Efficient Text Classification:
+
+We can train fastText on
+more than one billion words in less than ten
+minutes using a standard multicore CPU, and
+classify half a million sentences among 312K
+
+we show that linear models with a rank constraint
+and a fast loss approximation can train on a billion
+words within ten minutes, while achieving performance
+on par with the state-of-the-art.
+
+a neural network trained on n-gram features as described in [1]. Hyperparameters such as
+number of epochs, min and max values of of N for the N-gram features and n-gram vocabulary 
+size were hand tuned to determine optimal values on a few prompts and kept constant thereafter.
