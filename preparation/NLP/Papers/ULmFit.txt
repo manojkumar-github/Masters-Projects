@@ -49,4 +49,15 @@ c) 3 tasks:
          f) Bi-Directional Language Model
  
  
+ How to use pre-trained ULMfit Model:
+ 
+ https://github.com/fastai/fastai/tree/master/courses/dl2/imdb_scripts
+ 
+ 1) Either pre-training the general model or downloading the pre-trained models.
+ a) To pre-train the generic model
+ pretrain_lm.py --dir-path DIR_PATH --cuda-id CUDA_ID [--cl CL] [--bs BS] [--backwards BACKWARDS] [--lr LR] [--sampled SAMPLED] [--pretrain-id PRETRAIN_ID]
+ b) finetune_lm.py --dir-path DIR_PATH --pretrain-path PRETRAIN_PATH [--cuda-id CUDA_ID] [--cl CL] [--pretrain-id PRETRAIN_ID] [--lm-id LM_ID] [--bs BS] [--dropmult DROPMULT] [--backwards BACKWARDS] [--lr LR] [--preload PRELOAD] [--bpe BPE] [--startat STARTAT] [--use-clr USE_CLR] [--use-regular-schedule USE_REGULAR_SCHEDULE] [--use-discriminative USE_DISCRIMINATIVE] [--notrain NOTRAIN] [--joined JOINED] [--train-file-id TRAIN_FILE_ID] [--early-stopping EARLY_STOPPING]
+c) Train and Evaluate and Predict the classifier
+
+ 
    
