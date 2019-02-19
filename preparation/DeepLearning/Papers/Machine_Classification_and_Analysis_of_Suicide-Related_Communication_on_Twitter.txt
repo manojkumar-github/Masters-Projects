@@ -1,0 +1,13 @@
+We built a set of baseline classifiers using lexical,
+structural, emotive and psychological features extracted
+from Twitter posts. We then improved on the baseline classifiers
+by building an ensemble classifier using the Rotation
+Forest algorithm and a Maximum Probability voting classification
+decision method, based on the outcome of base
+classifiers. 
+
+1) They used human annotators to annotate the text taken from the web source from media and blog posts.
+2) Then applied tf-idf (term frequency Inverse Document Frequency) method to the corpus to identify frequently in suicidal identifcation class but less frequently in non-suiciadal identification class.
+3) For tf-idf he considered n-grams of 1 to 5 upto top 500 ranked words. Further down to 62 keywords after peer reviews.
+4) 3 types of feature sets and used PCA for feature reduction.
+5) Using fast text each of the sentence embeddings for each phrases are computed
